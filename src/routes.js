@@ -13,9 +13,8 @@ import ErrorPage from './components/ErrorPage';
 
 const router = new Router(on => {
 
-  on('*', async (state, next) => {
-    const component = await next();
-    return component && <App context={state.context}>{component}</App>;
+  on('*', async (state) => {
+    return <App context={state.context}></App>;
   });
 
   on('/contact', async () => <ContactPage />);

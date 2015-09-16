@@ -7,25 +7,18 @@ import withStyles from '../../decorators/withStyles';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
+import GameContainer from '../GameContainer';
 
 @withContext
 @withStyles(styles)
 class App extends Component {
 
-  static propTypes = {
-    children: PropTypes.element.isRequired,
-    error: PropTypes.object
-  };
-
   render() {
-    return !this.props.error ? (
+    return (
       <div>
-        <Header />
-        {this.props.children}
-        <Feedback />
-        <Footer />
+        <GameContainer />
       </div>
-    ) : this.props.children;
+    );
   }
 
 }

@@ -5,10 +5,12 @@ import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
 import express from 'express';
+import socketio from 'socket.io';
 import ReactDOM from 'react-dom/server';
 import Router from './routes';
 
 const server = global.server = express();
+const io = socketio(4000);
 
 server.set('port', (process.env.PORT || 5000));
 server.use(express.static(path.join(__dirname, 'public')));
@@ -56,8 +58,12 @@ server.get('*', async (req, res, next) => {
 
 server.listen(server.get('port'), () => {
   /* eslint-disable no-console */
-  console.log('The server is running at http://localhost:' + server.get('port'));
+  console.log('The HTTP server is running on port ' + server.get('port') + ' and the socket server is running in port 4000.');
   if (process.send) {
     process.send('online');
   }
+});
+
+io.on('connection', (req, res) => {
+  console.log('Connection!');
 });

@@ -1,0 +1,17 @@
+.InputBox {
+  overflow: hidden;
+
+  input {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    border: 0;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+}

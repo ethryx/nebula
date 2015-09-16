@@ -12,12 +12,15 @@
   --gray:                  color(black lightness(+33.5%)); /* #555 */
   --gray-light:            color(black lightness(+46.7%)); /* #777 */
   --gray-lighter:          color(black lightness(+93.5%)); /* #eee */
+  --bg-color:              rgba(0,0,0,0.4);
+  --bg-color-dark:         rgba(0,0,0,0.7);
+  --box-shadow:            inset 0 0 10px #191919;
 
   /*
    * Typography
    * ======================================================================== */
 
-  --font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+  --font-family-base:      'Fredoka One', cursive;;
 
   /*
    * Layout
