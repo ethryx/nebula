@@ -1,5 +1,10 @@
 export default {
+  MAP_WIDTH: 300,
+  MAP_HEIGHT: 260,
+  GRID_WIDTH: 40,
+  GRID_HEIGHT: 40,
+  GRID_PADDING: 10,
   COLORS: {
-    WHITE: '172, 173, 168'
+    WHITE: '220, 220, 220'
   }
 };

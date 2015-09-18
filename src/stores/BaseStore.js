@@ -26,4 +26,5 @@ export default class BaseStore extends EventEmitter {
   removeChangeListener(cb) {
     this.removeListener('CHANGE', cb);
   }
+
 }

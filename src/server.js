@@ -9,6 +9,8 @@ import socketio from 'socket.io';
 import ReactDOM from 'react-dom/server';
 import Router from './routes';
 
+import Players from './server/Players';
+
 const server = global.server = express();
 const io = socketio(4000);
 
@@ -64,6 +66,6 @@ server.listen(server.get('port'), () => {
   }
 });
 
-io.on('connection', (req, res) => {
-  console.log('Connection!');
+io.on('connection', (socket) => {
+  Players.addPlayer(socket);
 });

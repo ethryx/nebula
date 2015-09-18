@@ -1,5 +1,8 @@
 import io from 'socket.io-client';
 
+import ActionTypes from '../constants/ActionTypes';
+import Dispatcher from '../core/Dispatcher';
+
 var connection;
 
 const actions = {
@@ -12,7 +15,18 @@ const actions = {
 
     connection = io.connect('http://' + window.location.hostname + ':4000');
     connection.on('connect', () => {
-      console.log('Connected!');
+
+      Dispatcher.dispatch({
+        actionType: ActionTypes.SERVER_CONNECTED
+      });
+
+    });
+  },
+
+  addText: text => {
+    Dispatcher.dispatch({
+      actionType: ActionTypes.ADD_TEXT,
+      text: text
     });
   }
 
