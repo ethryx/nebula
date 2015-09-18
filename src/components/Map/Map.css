@@ -1,0 +1,8 @@
+@import '../variables.css';
+
+.Map {
+  background-color: rgba(172, 173, 168, 0.05);
+  box-shadow: inset 0 0 42px rgba(172, 173, 168, 0.5);
+  height: 260px;
+  width: 100%;
+}

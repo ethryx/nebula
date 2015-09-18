@@ -10,7 +10,7 @@
   display: flex;
 
   &-left {
-    flex-basis: 20%;
+    flex-basis: 300px;
     background-color: var(--bg-color);
     box-shadow: var(--box-shadow);
   }
@@ -44,7 +44,7 @@
   }
 
   &-right {
-    flex-basis: 20%;
+    flex-basis: 300px;
     background-color: var(--bg-color);
     box-shadow: var(--box-shadow);
   }

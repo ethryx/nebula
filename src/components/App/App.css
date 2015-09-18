@@ -11,7 +11,7 @@
 html {
   color: #222;
   font-weight: 100;
-  font-size: 1em; /* ~16px; */
+  font-size: 0.9em; /* ~16px; */
   font-family: var(--font-family-base);
   line-height: 1.375; /* ~22px */
 }

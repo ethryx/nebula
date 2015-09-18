@@ -6,6 +6,7 @@ import withStyles from '../../decorators/withStyles';
 import withViewport from '../../decorators/withViewport';
 import MainText from '../MainText';
 import InputBox from '../InputBox';
+import Map from '../Map';
 import ActionCreators from '../../actions/ActionCreators';
 
 @withViewport
@@ -44,7 +45,7 @@ class GameContainer extends Component {
           </div>
         </div>
         <div className="GameContainer-right">
-
+          <Map />
         </div>
       </div>
     );
