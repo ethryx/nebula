@@ -32,6 +32,7 @@
       &-center {
         background-color: var(--bg-color-dark);
         box-shadow: var(--box-shadow);
+        overflow: auto;
       }
 
       &-bottom {

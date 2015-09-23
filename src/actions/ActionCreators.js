@@ -21,13 +21,75 @@ const actions = {
       });
 
     });
+    connection.on('text', data => {
+
+      Dispatcher.dispatch({
+        actionType: ActionTypes.ADD_TEXT,
+        text: data.text
+      });
+
+    });
+    connection.on('loginSuccess', data => {
+
+      Dispatcher.dispatch({
+        actionType: ActionTypes.LOGIN_SUCCESS
+      });
+
+    });
+    connection.on('location', data => {
+
+      Dispatcher.dispatch({
+        actionType: ActionTypes.NEW_LOCATION,
+        location: data
+      });
+
+    });
+    connection.on('map', data => {
+
+      Dispatcher.dispatch({
+        actionType: ActionTypes.NEW_MAP,
+        map: data
+      });
+
+    });
+    connection.on('roomList', data => {
+
+      Dispatcher.dispatch({
+        actionType: ActionTypes.NEW_ROOM_LIST,
+        room: data
+      });
+
+    });
   },
 
   addText: text => {
+
     Dispatcher.dispatch({
       actionType: ActionTypes.ADD_TEXT,
       text: text
     });
+
+  },
+
+  login: (name, pass) => {
+
+    connection.emit('login', {
+      name: name,
+      pass: pass
+    });
+
+  },
+
+  getMapData: () => {
+
+    connection.emit('getNearbyMapData');
+
+  },
+
+  getRoomList: () => {
+
+    connection.emit('getRoomList');
+
   }
 
 };

@@ -48,15 +48,22 @@ class InputBox extends Component {
       this.setState({
         placeholder: 'Password?'
       });
-      ActionCreators.addText(`<br><br>Thanks! What is your password, ${this.characterName}?`);
+      ActionCreators.addText(`<br><br>Thanks! What is your password, ${this.characterName}? If this is a new character, choose a password now.`);
     } else if(this.state.loggingIn === true && this.characterName !== '' && this.characterPass === '') {
       this.characterPass = command;
       this.setState({
         placeholder: 'Logging in..'
       });
       ActionCreators.addText(`<br><br>Great! Let's get you into the world! One moment..`);
+      ActionCreators.login(this.characterName, this.characterPass);
+      this.setState({
+        loggingIn: false,
+        placeholder: ''
+      });
     } else if(this.state.loggingIn === true && this.characterName !== '' && this.characterPass !== '') {
       ActionCreators.addText(`<br><br>Whoa! Hold on there.. we're still trying to log you in.`);
+    } else {
+      ActionCreators.addText('Some text here....');
     }
 
     ReactDOM.findDOMNode(this.refs.txtInput).value = '';
@@ -65,7 +72,7 @@ class InputBox extends Component {
   render() {
     return (
       <div className="InputBox">
-        <input ref="txtInput" type="text" onKeyUp={this.handleKeyUp.bind(this)} placeholder={ ((this.state.loggingIn) ? this.state.placeholder: '') } />
+        <input ref="txtInput" type={ ((this.state.loggingIn && this.characterName !== '' ) ? 'password' : 'text') } onKeyUp={this.handleKeyUp.bind(this)} placeholder={ ((this.state.loggingIn) ? this.state.placeholder: '') } />
       </div>
     );
   }

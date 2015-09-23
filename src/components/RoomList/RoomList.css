@@ -1,0 +1,15 @@
+.RoomList {
+  height: 50%;
+
+  &-area {
+    color: #fff;
+    text-align: center;
+    font-size: 1.6em;
+    padding: 12px;
+  }
+
+  &-list {
+    padding: 10px;
+  }
+
+}

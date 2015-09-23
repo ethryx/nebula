@@ -3,4 +3,14 @@
   height: 100%;
   color: #fff;
   padding: 10px;
+
+  .type-room-name {
+    font-size: 1.3em;
+    color: #EFEF66;
+  }
+
+  .type-room-desc {
+    color: #EAEAA0;
+  }
+
 }

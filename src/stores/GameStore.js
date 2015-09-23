@@ -2,6 +2,7 @@ import BaseStore from './BaseStore';
 import ActionTypes from '../constants/ActionTypes';
 
 var unprocessedText = [];
+var loggedIn = false;
 
 class GameStore extends BaseStore {
 
@@ -17,6 +18,10 @@ class GameStore extends BaseStore {
         break;
       case ActionTypes.ADD_TEXT:
         unprocessedText.push(action.text);
+        this.emitChange();
+        break;
+      case ActionTypes.LOGIN_SUCCESS:
+        loggedIn = true;
         this.emitChange();
         break;
     }

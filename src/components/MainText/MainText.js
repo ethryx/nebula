@@ -8,6 +8,10 @@ import GameStore from '../../stores/GameStore';
 @withStyles(styles)
 class MainText extends Component {
 
+  static propTypes = {
+    onNewText: PropTypes.func.isRequired
+  };
+
   constructor() {
     super();
     this.state = {
@@ -18,7 +22,7 @@ class MainText extends Component {
   componentDidMount() {
     GameStore.addConnectedListener(this.handleServerConnection.bind(this));
     GameStore.addChangeListener(this.handleGameChange.bind(this));
-    this.addLine('Welcome to the universe, traveler.');
+    this.addLine('Welcome to Armeria, internet traveler.');
   }
 
   componentWillUnmount() {
@@ -37,6 +41,7 @@ class MainText extends Component {
       newLines.forEach(line => {
         this.addLine(line);
       });
+      this.props.onNewText();
     }
   }
 
@@ -46,7 +51,7 @@ class MainText extends Component {
     var lineId = 0;
     this.state.lines.forEach(line => {
       lineId++;
-      lines.push(<div key={lineId} dangerouslySetInnerHTML={{__html: line}}></div>);
+      lines.push(<div key={lineId} className="animated fadeInDown" dangerouslySetInnerHTML={{__html: line}}></div>);
     });
 
     return lines;

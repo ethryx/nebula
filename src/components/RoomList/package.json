@@ -1,0 +1,6 @@
+{
+  "name": "RoomList",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./RoomList.js"
+}
