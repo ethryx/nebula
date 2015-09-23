@@ -23,7 +23,7 @@ class GameContainer extends Component {
   };
 
   handleOnNewText() {
-    //ReactDOM.findDOMNode(this.refs.txtInput).value
+    ReactDOM.findDOMNode(this.refs.containerCenter).scrollTop = 999999;
   }
 
   componentDidMount() {
@@ -38,7 +38,7 @@ class GameContainer extends Component {
         </div>
         <div className="GameContainer-center">
           <div className="GameContainer-center-container">
-            <div className="GameContainer-center-container-center" style={{flexBasis: (this.props.viewport.height-50) + 'px'}}>
+            <div className="GameContainer-center-container-center" style={{flexBasis: (this.props.viewport.height-50) + 'px'}} ref="containerCenter">
               <MainText onNewText={this.handleOnNewText.bind(this)}/>
             </div>
             <div className="GameContainer-center-container-bottom">

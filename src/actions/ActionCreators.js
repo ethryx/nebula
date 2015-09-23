@@ -90,6 +90,18 @@ const actions = {
 
     connection.emit('getRoomList');
 
+  },
+
+  say: (sayWhat) => {
+
+    connection.emit('say', sayWhat);
+
+  },
+
+  move: (moveWhere) => {
+
+    connection.emit('move', moveWhere);
+
   }
 
 };

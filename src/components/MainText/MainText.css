@@ -4,13 +4,17 @@
   color: #fff;
   padding: 10px;
 
-  .type-room-name {
-    font-size: 1.3em;
-    color: #EFEF66;
-  }
+  &-line {
+    animation-duration: 0.1s;
 
-  .type-room-desc {
-    color: #EAEAA0;
+    .type-room-name {
+      font-size: 1.3em;
+      color: #EFEF66;
+    }
+
+    .type-room-desc {
+      color: #EAEAA0;
+    }
   }
 
 }

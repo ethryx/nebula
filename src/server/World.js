@@ -13,6 +13,16 @@ class World {
 
   getWorldName = () => this.savedData.name
 
+  getRoomAt = (x,y) => {
+    var room = _.findWhere(this.savedData.rooms, { x: x, y: y });
+
+    if(room) {
+      return room;
+    } else {
+      return false;
+    }
+  }
+
   getRoomNameAt = (x,y) => {
     var room = _.findWhere(this.savedData.rooms, { x: x, y: y });
 
@@ -35,7 +45,7 @@ class World {
 
   getMapData = (currentLocation) => {
     return this.savedData.rooms.map(room => {
-      return { x: room.x, y: room.y, color: room.color, name: room.name }
+      return { x: room.x, y: room.y, color: room.color, name: room.name, desc: room.desc }
     });
   }
 }

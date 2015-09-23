@@ -1,6 +1,7 @@
 /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
 
 import React, { PropTypes, Component } from 'react';
+import _ from 'underscore';
 import styles from './MainText.css';
 import withStyles from '../../decorators/withStyles';
 import GameStore from '../../stores/GameStore';
@@ -31,7 +32,7 @@ class MainText extends Component {
   }
 
   handleServerConnection() {
-    this.addLine('<br><br>What is your name?', { paddingTop: true });
+    this.addLine('<br>What is your name?', { paddingTop: true });
   }
 
   handleGameChange() {
@@ -51,7 +52,7 @@ class MainText extends Component {
     var lineId = 0;
     this.state.lines.forEach(line => {
       lineId++;
-      lines.push(<div key={lineId} className="animated fadeInDown" dangerouslySetInnerHTML={{__html: line}}></div>);
+      lines.push(<div key={lineId} className="MainText-line animated fadeInDown" dangerouslySetInnerHTML={{__html: line}}></div>);
     });
 
     return lines;

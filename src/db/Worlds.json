@@ -5,8 +5,8 @@
       { "x": 500, "y": 500, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
       { "x": 501, "y": 500, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
       { "x": 502, "y": 500, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
-      { "x": 500, "y": 501, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
-      { "x": 500, "y": 499, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." }
+      { "x": 500, "y": 501, "color": "115,243,80", "name": "Random Room", "desc": "Description of the random room." },
+      { "x": 500, "y": 499, "color": "80,169,243", "name": "Random Room", "desc": "Description of the random room." }
     ]
   }
 ]

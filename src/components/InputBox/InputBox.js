@@ -48,22 +48,26 @@ class InputBox extends Component {
       this.setState({
         placeholder: 'Password?'
       });
-      ActionCreators.addText(`<br><br>Thanks! What is your password, ${this.characterName}? If this is a new character, choose a password now.`);
+      ActionCreators.addText(`<br>Thanks! What is your password, ${this.characterName}? If this is a new character, choose a password now.`);
     } else if(this.state.loggingIn === true && this.characterName !== '' && this.characterPass === '') {
       this.characterPass = command;
       this.setState({
         placeholder: 'Logging in..'
       });
-      ActionCreators.addText(`<br><br>Great! Let's get you into the world! One moment..`);
+      ActionCreators.addText(`<br>Great! Let's get you into the world! One moment..`);
       ActionCreators.login(this.characterName, this.characterPass);
       this.setState({
         loggingIn: false,
         placeholder: ''
       });
     } else if(this.state.loggingIn === true && this.characterName !== '' && this.characterPass !== '') {
-      ActionCreators.addText(`<br><br>Whoa! Hold on there.. we're still trying to log you in.`);
+      ActionCreators.addText(`<br>Whoa! Hold on there.. we're still trying to log you in.`);
     } else {
-      ActionCreators.addText('Some text here....');
+      if(command.substr(0, 6) === '/move ') {
+        ActionCreators.move(command.substr(6));
+      } else {
+        ActionCreators.say(command);
+      }
     }
 
     ReactDOM.findDOMNode(this.refs.txtInput).value = '';
