@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Ethryx",
+    "password": "xyrhte89",
+    "location": {
+      "world": "Outer World",
+      "x": 500,
+      "y": 500
+    }
+  },
+
+  {
+    "name": "Miketh",
+    "password": "xyrhte89",
+    "location": {
+      "world": "Outer World",
+      "x": 500,
+      "y": 500
+    }
+  }
+]
