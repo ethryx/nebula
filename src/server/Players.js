@@ -14,7 +14,7 @@ class Players {
   }
 
   loadPlayers() {
-    fs.readFile(process.cwd() + '/src/db/Players.json', 'utf8', (err, data) => {
+    fs.readFile(process.cwd() + '/src/server/db/Players.json', 'utf8', (err, data) => {
       var jsonData = JSON.parse(data);
       jsonData.forEach(player => {
         this.players.push(new Player(this.getGame(), player));
@@ -35,8 +35,12 @@ class Players {
   }
 
   handleLogin(socket, loginData) {
+    var isNewPlayer = true;
+
     this.players.forEach(player => {
       if(player.getName().toLowerCase() === loginData.name.toLowerCase() && player.getPassword() === loginData.pass) {
+        // Not a new player
+        isNewPlayer = false;
         // Let's assign what we need
         player.setConnected(true);
         player.setSocket(socket);
@@ -45,6 +49,27 @@ class Players {
         player.handleLoginSuccess();
       }
     });
+
+    // New player?
+    if(isNewPlayer) {
+      // Create the player
+      var newPlayer = new Player(this.getGame(), {
+        name: loginData.name,
+        password: loginData.pass,
+        location: {
+          world: '',
+          x: 0,
+          y: 0
+        }
+      });
+      this.players.push(newPlayer);
+      // Assign what we need
+      newPlayer.setConnected(true);
+      newPlayer.setSocket(socket);
+      newPlayer.registerDisconnect(this.removePlayer);
+      // Pass this off to the player object
+      newPlayer.handleNewPlayerSuccess();
+    }
   }
 
   getPlayersInRoom(location) {

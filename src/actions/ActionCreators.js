@@ -92,15 +92,12 @@ const actions = {
 
   },
 
-  say: (sayWhat) => {
+  command: (command, args) => {
 
-    connection.emit('say', sayWhat);
-
-  },
-
-  move: (moveWhere) => {
-
-    connection.emit('move', moveWhere);
+    connection.emit('command', {
+      command: command,
+      args: args
+    });
 
   }
 

@@ -14,7 +14,7 @@ class Worlds {
   }
 
   loadWorlds() {
-    fs.readFile(process.cwd() + '/src/db/Worlds.json', 'utf8', (err, data) => {
+    fs.readFile(process.cwd() + '/src/server/db/Worlds.json', 'utf8', (err, data) => {
       var jsonData = JSON.parse(data);
       jsonData.forEach(world => {
         this.worlds.push(new World(this.getGame(), world));
