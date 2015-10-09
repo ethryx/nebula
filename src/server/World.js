@@ -11,6 +11,8 @@ class World {
     return this.Game;
   }
 
+  getSavedData = () => this.savedData
+
   getWorldName = () => this.savedData.name
 
   getRoomAt = (x,y) => {
@@ -47,6 +49,20 @@ class World {
     return this.savedData.rooms.map(room => {
       return { x: room.x, y: room.y, color: room.color, name: room.name, desc: room.desc }
     });
+  }
+
+  createRoomAt = (x, y) => {
+    let newRoom = {
+      x: x,
+      y: y,
+      color: '255,255,255',
+      name: 'New Room',
+      desc: 'This is the description of your new room. Enjoy!'
+    };
+
+    this.savedData.rooms.push(newRoom);
+
+    return newRoom;
   }
 }
 

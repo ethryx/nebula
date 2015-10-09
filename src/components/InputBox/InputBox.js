@@ -36,9 +36,24 @@ class InputBox extends Component {
     });
   }
 
-  handleKeyUp = event => {
+  handleKeyDown = event => {
     if(event.keyCode === 13) {
       this.handleCommand(ReactDOM.findDOMNode(this.refs.txtInput).value);
+    } else if(event.keyCode === 104) {
+      ActionCreators.command('n', '');
+      event.preventDefault();
+    } else if(event.keyCode === 98) {
+      ActionCreators.command('s', '');
+      event.preventDefault();
+    } else if(event.keyCode === 102) {
+      ActionCreators.command('e', '');
+      event.preventDefault();
+    } else if(event.keyCode === 100) {
+      ActionCreators.command('w', '');
+      event.preventDefault();
+    } else if(event.keyCode === 101) {
+      ActionCreators.command('say', '');
+      event.preventDefault();
     }
   }
 
@@ -70,7 +85,7 @@ class InputBox extends Component {
   render() {
     return (
       <div className="InputBox">
-        <input ref="txtInput" type={ ((this.state.loggingIn && this.characterName !== '' ) ? 'password' : 'text') } onKeyUp={this.handleKeyUp.bind(this)} placeholder={this.state.placeholder} />
+        <input ref="txtInput" type={ ((this.state.loggingIn && this.characterName !== '' ) ? 'password' : 'text') } onKeyDown={this.handleKeyDown.bind(this)} placeholder={this.state.placeholder} />
       </div>
     );
   }

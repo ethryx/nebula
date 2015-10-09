@@ -23,6 +23,17 @@ class Worlds {
     });
   }
 
+  saveWorlds() {
+    let worldsArray = [];
+    this.worlds.forEach(world => {
+      worldsArray.push(world.getSavedData());
+    });
+
+    console.log(`[DB] ${worldsArray.length} worlds saved.`)
+
+    fs.writeFile(process.cwd() + '/src/server/db/Worlds.json', JSON.stringify(worldsArray), 'utf8');
+  }
+
   getWorldByName(name) {
     for(var i = 0; i < this.worlds.length; i++) {
       if(this.worlds[i].getWorldName() === name) {

@@ -23,7 +23,7 @@ class MainText extends Component {
   componentDidMount() {
     GameStore.addConnectedListener(this.handleServerConnection.bind(this));
     GameStore.addChangeListener(this.handleGameChange.bind(this));
-    this.addLine('Welcome to Armeria, internet traveler.');
+    this.addLine('Welcome to the world of Armeria!');
   }
 
   componentWillUnmount() {

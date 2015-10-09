@@ -29,11 +29,7 @@ class RoomList extends Component {
       for(var i = 0; i < availMapData.length; i++) {
         if(availMapData[i].x === currentLoc.x && availMapData[i].y === currentLoc.y) {
           this.setState({
-            title: availMapData[i].name,
-            styles: {
-              backgroundColor: `rgba(${availMapData[i].color}, 0.1)`,
-              boxShadow: `inset 0 0 16px rgba(${availMapData[i].color}, 0.4)`
-            }
+            title: availMapData[i].name
           });
           break;
         }

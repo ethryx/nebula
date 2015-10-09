@@ -10,6 +10,8 @@ import InputBox from '../InputBox';
 import Map from '../Map';
 import RoomList from '../RoomList';
 import ActionCreators from '../../actions/ActionCreators';
+import sfx from '../../utils/sfx';
+import Sounds from '../../constants/Sounds';
 
 @withViewport
 @withStyles(styles)
@@ -28,6 +30,7 @@ class GameContainer extends Component {
 
   componentDidMount() {
     ActionCreators.connect();
+    sfx.playMusic(Sounds.MAIN_MUSIC);
   }
 
   render() {

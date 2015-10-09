@@ -5,6 +5,8 @@ import withStyles from '../../decorators/withStyles';
 import MapConstants from '../../constants/MapConstants';
 import MapStore from '../../stores/MapStore';
 import ActionCreators from '../../actions/ActionCreators';
+import sfx from '../../utils/sfx';
+import Sounds from '../../constants/Sounds';
 
 @withStyles(styles)
 class Map extends Component {
@@ -101,6 +103,17 @@ class Map extends Component {
   }
 
   handleMapDataChange() {
+    // Did we move? If so, let's play a walk sound.
+    if(
+      this.state.currentLocation !== false &&
+      (
+        this.state.currentLocation.x !== MapStore.getCurrentLocation().x ||
+        this.state.currentLocation.y !== MapStore.getCurrentLocation().y
+      )
+    ) {
+      sfx.playSound(Sounds.WALK);
+    }
+
     this.setState({
       currentLocation: MapStore.getCurrentLocation(),
       availableMapData: MapStore.getAvailableMapData()

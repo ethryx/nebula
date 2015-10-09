@@ -1,12 +1,1 @@
-[
-  {
-    "name": "Outer World",
-    "rooms": [
-      { "x": 500, "y": 500, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
-      { "x": 501, "y": 500, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
-      { "x": 502, "y": 500, "color": "255,255,255", "name": "Random Room", "desc": "Description of the random room." },
-      { "x": 500, "y": 501, "color": "115,243,80", "name": "Random Room", "desc": "Description of the random room." },
-      { "x": 500, "y": 499, "color": "80,169,243", "name": "Random Room", "desc": "Description of the random room." }
-    ]
-  }
-]
+[{"name":"Outer World","rooms":[{"x":500,"y":500,"color":"255,255,255","name":"Random Room","desc":"Description of the random room."},{"x":501,"y":500,"color":"255,255,255","name":"Random Room","desc":"Description of the random room."},{"x":502,"y":500,"color":"255,255,255","name":"Random Room","desc":"Description of the random room."},{"x":500,"y":501,"color":"115,243,80","name":"Random Room","desc":"Description of the random room."},{"x":500,"y":499,"color":"80,169,243","name":"Random Room","desc":"Description of the random room."},{"x":499,"y":500,"color":"255,255,255","name":"New Room","desc":"This is the description of your new room. Enjoy!"},{"x":498,"y":500,"color":"255,255,255","name":"New Room","desc":"This is the description of your new room. Enjoy!"},{"x":498,"y":499,"color":"255,255,255","name":"New Room","desc":"This is the description of your new room. Enjoy!"},{"x":498,"y":498,"color":"255,255,255","name":"New Room","desc":"This is the description of your new room. Enjoy!"}]}]

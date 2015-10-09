@@ -99,10 +99,12 @@ class Player {
   }
 
   getCommandAccess = (command) => true
-  
+
   getOnlineStatus = () => this.connected
 
   getSocketId = () => this.socket.id
+
+  getSavedData = () => this.savedData
 
   getName = () => this.savedData.name
 

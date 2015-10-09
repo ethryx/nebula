@@ -23,6 +23,17 @@ class Players {
     });
   }
 
+  savePlayers() {
+    let playersArray = [];
+    this.players.forEach(player => {
+      playersArray.push(player.getSavedData());
+    });
+
+    console.log(`[DB] ${playersArray.length} players saved.`)
+    
+    fs.writeFile(process.cwd() + '/src/server/db/Players.json', JSON.stringify(playersArray), 'utf8');
+  }
+
   addPlayer(socket) {
     socket.on('login', data => {
       this.handleLogin(socket, data);

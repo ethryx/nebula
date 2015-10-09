@@ -39,6 +39,28 @@ class CommandHelper {
       case 'summon':
         this.summon(args);
         break;
+      case 'createroom':
+        this.createRoom(args);
+        break;
+      case 'north!':
+      case 'n!':
+        this.createRoom('n');
+        break;
+      case 'south!':
+      case 's!':
+        this.createRoom('s');
+        break;
+      case 'east!':
+      case 'e!':
+        this.createRoom('e');
+        break;
+      case 'west!':
+      case 'w!':
+        this.createRoom('w');
+        break;
+      case 'save':
+        this.save();
+        break;
       default:
         this.getPlayer().sendText(`<br>That's not a valid command.`);
     }
@@ -96,7 +118,7 @@ class CommandHelper {
 
     // Move!
     this.getPlayer().setLocation(newLocation.x, newLocation.y);
-    this.getPlayer().sendText(`<br>You move to the next room..`);
+    this.getPlayer().sendText(`<br>You moved to a new room.`);
 
     // Send room info and new location to client
     this.getPlayer().showRoomInfo();
@@ -132,6 +154,64 @@ class CommandHelper {
     this.getPlayer().sendText(`All good.`);
   }
 
+  createRoom(roomDirection) {
+    if(!this.getPlayer().getCommandAccess('createroom')) {
+      return;
+    }
+
+    // Using Object.assign() here to use a copy of the returned location
+    let originalLocation = Object.assign({}, this.getPlayer().getLocation());
+    let newLocation = Object.assign({}, this.getPlayer().getLocation());
+
+    switch(roomDirection) {
+      case 'n':
+        newLocation.y--;
+        break;
+      case 's':
+        newLocation.y++;
+        break;
+      case 'e':
+        newLocation.x++;
+        break;
+      case 'w':
+        newLocation.x--;
+        break;
+      default:
+        return;
+    }
+
+    // Is there a room there?
+    let checkRoom = this.getPlayer().getCurrentWorld().getRoomAt(newLocation.x, newLocation.y);
+
+    if(checkRoom !== false) {
+      this.getPlayer().sendText(`<br>There is already a room in that direction.`);
+      return;
+    }
+
+    let newRoom = this.getPlayer().getCurrentWorld().createRoomAt(newLocation.x, newLocation.y);
+
+    // Send new map
+    this.getPlayer().getNearbyMapData();
+
+    this.getPlayer().sendText(`<br>You moved to the new room that was created for you.`);
+
+    this.move(roomDirection);
+  }
+
+  save() {
+    if(!this.getPlayer().getCommandAccess('save')) {
+      return;
+    }
+
+    // Save Players
+    this.getGame().getPlayers().savePlayers();
+    this.getPlayer().sendText(`<br>Players saved.`);
+
+    // Save Worlds
+    this.getGame().getWorlds().saveWorlds();
+    this.getPlayer().sendText(`<br>Worlds saved.`);
+
+  }
 }
 
 export default CommandHelper;
